@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface-tint: #456081;
+  --color-surface-container-high: #d8ebfa;
+  --color-secondary-container: #98f2f0;
+  --color-on-secondary: #ffffff;
+  --color-on-tertiary-container: #c28700;
+  --color-primary-fixed-dim: #acc9ee;
+  --color-tertiary-fixed-dim: #ffba3b;
+  --color-inverse-surface: #22323e;
+  --color-error-container: #ffdad6;
+  --color-primary-container: #0b2c4a;
+  --color-secondary: #006a69;
+  --color-outline-variant: #c3c6ce;
+  --color-error: #ba1a1a;
+  --color-on-secondary-fixed: #002020;
+  --color-tertiary-container: #3c2700;
+  --color-surface-bright: #f6faff;
+  --color-secondary-fixed: #98f2f0;
+  --color-on-secondary-fixed-variant: #00504f;
+  --color-on-secondary-container: #00706f;
+  --color-on-tertiary-fixed: #281900;
+  --color-on-primary-fixed-variant: #2c4968;
+  --color-outline: #73777e;
+  --color-on-primary-fixed: #001d36;
+  --color-background: #f6faff;
+  --color-on-surface: #0c1d28;
+  --color-on-tertiary-fixed-variant: #604100;
+  --color-on-error-container: #93000a;
+  --color-primary: #00172d;
+  --color-tertiary-fixed: #ffdead;
+  --color-surface-container-highest: #d3e5f4;
+  --color-secondary-fixed-dim: #7cd5d3;
+  --color-surface-container-low: #eaf5ff;
+  --color-on-tertiary: #ffffff;
+  --color-surface-container: #dff0ff;
+  --color-surface-dim: #cadcec;
+  --color-on-background: #0c1d28;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-primary: #ffffff;
+  --color-on-error: #ffffff;
+  --color-inverse-primary: #acc9ee;
+  --color-tertiary: #211400;
+  --color-on-surface-variant: #43474d;
+  --color-on-primary-container: #7894b7;
+  --color-surface: #f6faff;
+  --color-inverse-on-surface: #e5f2ff;
+  --color-surface-variant: #d3e5f4;
+  --color-primary-fixed: #d1e4ff;
+
+  --font-body-md: 'Hind Siliguri', 'Noto Sans Bengali', 'Noto Sans', sans-serif;
+  --font-headline-md: 'Hind Siliguri', 'Space Grotesk', 'Noto Sans Bengali', sans-serif;
+  --font-label-md: 'Hind Siliguri', 'Noto Sans Bengali', 'Noto Sans', sans-serif;
+  --font-headline-sm: 'Hind Siliguri', 'Space Grotesk', 'Noto Sans Bengali', sans-serif;
+  --font-display-lg-mobile: 'Hind Siliguri', 'Space Grotesk', sans-serif;
+  --font-headline-lg: 'Hind Siliguri', 'Space Grotesk', 'Noto Sans Bengali', sans-serif;
+  --font-label-sm: 'Hind Siliguri', 'Noto Sans Bengali', 'Noto Sans', sans-serif;
+  --font-body-lg: 'Hind Siliguri', 'Noto Sans Bengali', 'Noto Sans', sans-serif;
+  --font-stat-metric: 'Hind Siliguri', 'Space Grotesk', sans-serif;
+  --font-bilingual-subhead: 'Hind Siliguri', 'Noto Sans Bengali', 'Noto Sans', sans-serif;
+  --font-display-lg: 'Hind Siliguri', 'Space Grotesk', sans-serif;
+}
+
+@layer base {
+  html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f6faff;
+    font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Noto Sans', sans-serif;
+    color: #0c1d28;
+  }
+  body {
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+    min-height: max(884px, 100dvh);
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+}
+
+/* Material Symbols Outlined helper */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Utility helpers for classes used in the mockups */
+.px-margin {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.font-body-md { font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Noto Sans', sans-serif; }
+.font-headline-md { font-family: 'Hind Siliguri', 'Space Grotesk', 'Noto Sans Bengali', sans-serif; }
+.font-headline-sm { font-family: 'Hind Siliguri', 'Space Grotesk', 'Noto Sans Bengali', sans-serif; }
+.font-headline-lg { font-family: 'Hind Siliguri', 'Space Grotesk', 'Noto Sans Bengali', sans-serif; }
+.font-stat-metric { font-family: 'Hind Siliguri', 'Space Grotesk', sans-serif; font-size: 32px; line-height: 36px; letter-spacing: -0.02em; font-weight: 700; }
+.font-display-lg-mobile { font-family: 'Hind Siliguri', 'Space Grotesk', sans-serif; font-size: 30px; line-height: 38px; font-weight: 700; }
+.font-bilingual-subhead { font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Noto Sans', sans-serif; font-size: 15px; line-height: 22px; }
+.font-label-md { font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Noto Sans', sans-serif; font-size: 14px; line-height: 18px; }
+.font-label-sm { font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Noto Sans', sans-serif; font-size: 12px; line-height: 16px; }
+
+::-webkit-scrollbar {
+  display: none;
+}

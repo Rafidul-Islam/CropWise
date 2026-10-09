@@ -1,0 +1,6 @@
+{
+  "name": "CropWise",
+  "description": "CropWise by Arekta Team — NASA satellite-driven decision tool for water-smart crop rotations in Bangladesh's Barind Tract.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
