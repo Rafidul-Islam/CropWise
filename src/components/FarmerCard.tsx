@@ -20,6 +20,13 @@ export const TUBEWELL_BLOCK: Record<string, string> = {
   nachole: 'নাচোল-০৫',
 };
 
+const SOWING_BN: Record<string, string> = {
+  October: 'অক্টোবর',
+  November: 'নভেম্বর',
+  December: 'ডিসেম্বর',
+  January: 'জানুয়ারি',
+};
+
 /** Deterministic 5-digit ID from name + upazila — stable across reloads. */
 export function farmerCardNo(name: string, upazilaId: string): string {
   const code = UPAZILA_CODE[upazilaId] ?? 'BRD';
@@ -87,7 +94,7 @@ export const FarmerCard: React.FC<FarmerCardProps> = ({
         <div>
           <span className="text-white/60 block text-[10px]">{bn ? 'নিবন্ধিত জমি:' : 'Land:'}</span>
           <span className="font-bold">
-            {toBengaliNumber(acre)} {bn ? 'একর' : 'acre'} ({toBengaliNumber(bigha)} {bn ? 'বিঘা' : 'bigha'})
+            {bn ? `${toBengaliNumber(acre)} একর` : `${acre} acre`} ({bn ? `${toBengaliNumber(bigha)} বিঘা` : `${bigha} bigha`})
           </span>
         </div>
       </div>
@@ -99,7 +106,9 @@ export const FarmerCard: React.FC<FarmerCardProps> = ({
             {bn ? 'নলকূপ ব্লক:' : 'Block:'} {TUBEWELL_BLOCK[upazila.id] ?? upazila.nameBn}
           </span>
           <span className="font-bold text-[#98f2f0]">
-            {toBengaliNumber(upazila.bmdaHoursCap - used)}h {bn ? 'বাকি' : 'left'}
+            {bn
+              ? `${toBengaliNumber(upazila.bmdaHoursCap - used)}ঘণ্টা বাকি`
+              : `${upazila.bmdaHoursCap - used}h left`}
           </span>
         </div>
         <div className="w-full bg-white/20 rounded-full h-2 overflow-hidden">
@@ -112,10 +121,10 @@ export const FarmerCard: React.FC<FarmerCardProps> = ({
 
       <div className="flex flex-wrap gap-1.5 pt-1 text-[11px]">
         <span className="bg-white/15 px-2 py-1 rounded-full">
-          pH {ph.toFixed(1)} • {upazila.nameBn}
+          pH {bn ? toBengaliNumber(ph.toFixed(1)) : ph.toFixed(1)} • {bn ? upazila.nameBn : upazila.nameEn}
         </span>
         <span className="bg-white/15 px-2 py-1 rounded-full">
-          {bn ? 'বপন: ' : 'Sow: '}{farmer.sowingMonth}
+          {bn ? 'বপন: ' : 'Sow: '}{bn ? (SOWING_BN[farmer.sowingMonth] ?? farmer.sowingMonth) : farmer.sowingMonth}
         </span>
       </div>
     </div>

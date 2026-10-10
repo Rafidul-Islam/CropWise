@@ -1,11 +1,8 @@
 import React from 'react';
-import { ViewMode } from '../types';
 import { Logo } from './Logo';
 import { Lang } from '../i18n';
 
 interface HeaderProps {
-  viewMode: ViewMode;
-  onToggleViewMode: () => void;
   onOpenFarm: () => void;
   isOnline: boolean;
   onToggleOnline: () => void;
@@ -14,8 +11,6 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  viewMode,
-  onToggleViewMode,
   onOpenFarm,
   isOnline,
   onToggleOnline,
@@ -74,31 +69,6 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <span className="material-symbols-outlined text-[16px]">translate</span>
             <span className="font-bold text-xs">{lang === 'bn' ? 'EN' : 'বাং'}</span>
-          </button>
-
-          {/* Mode Switcher: Farmer vs Expert */}
-          <button
-            onClick={onToggleViewMode}
-            className="h-9 px-2.5 rounded-full bg-[#d8ebfa] text-[#0c1d28] flex items-center gap-1 transition-all hover:bg-[#d3e5f4] active:scale-95 shadow-xs"
-            title="Toggle between Farmer (কৃষক) and Expert (EXP) view"
-          >
-            <span
-              className={`font-label-sm ${
-                viewMode === 'farmer' ? 'font-bold text-[#00172d]' : 'text-[#43474d] opacity-70'
-              }`}
-            >
-              {lang === 'bn' ? 'কৃষক' : 'Farmer'}
-            </span>
-            <span className="font-label-sm text-[#43474d] opacity-60">/</span>
-            <span
-              className={`font-label-sm ${
-                viewMode === 'expert'
-                  ? 'font-bold text-[#006a69] bg-white px-1.5 py-0.5 rounded-full shadow-xs'
-                  : 'text-[#43474d] opacity-70'
-              }`}
-            >
-              EXP
-            </span>
           </button>
 
           {/* My Farm Button */}

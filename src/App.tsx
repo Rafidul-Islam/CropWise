@@ -39,7 +39,9 @@ export default function App() {
   // Navigation & View State
   const [activeTab, setActiveTab] = useState<AppTab>('field-tracker');
   const [fieldStep, setFieldStep] = useState<FieldStep>(1);
-  const [viewMode, setViewMode] = useState<ViewMode>('farmer');
+  // Farmer/EXP toggle removed from header for Video 1 (farmer-first).
+  // viewMode state + Step-1 expert block kept for Video 2 Expert mode.
+  const [viewMode] = useState<ViewMode>('farmer');
   const [isOnline, setIsOnline] = useState<boolean>(true);
 
   // Field & Agricultural Calibration State
@@ -77,10 +79,6 @@ export default function App() {
     });
   };
 
-  const handleToggleViewMode = () => {
-    setViewMode((prev) => (prev === 'farmer' ? 'expert' : 'farmer'));
-  };
-
   const handleToggleOnline = () => {
     setIsOnline((prev) => !prev);
   };
@@ -107,8 +105,6 @@ export default function App() {
     <div className="bg-[#f6faff] min-h-screen flex flex-col font-body-md text-[#0c1d28] selection:bg-[#006a69] selection:text-white">
       {/* Top Fixed App Bar */}
       <Header
-        viewMode={viewMode}
-        onToggleViewMode={handleToggleViewMode}
         onOpenFarm={() => setActiveTab('my-farm')}
         isOnline={isOnline}
         onToggleOnline={handleToggleOnline}
